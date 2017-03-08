@@ -23,8 +23,8 @@ enum Reg {
     M, //Clock Registers.
     T
 };
-REG = array_create(10);
-
+ REG = array_create(10);
+SREG = array_create(8);
 //
 //16-Bit Pointers
 //
