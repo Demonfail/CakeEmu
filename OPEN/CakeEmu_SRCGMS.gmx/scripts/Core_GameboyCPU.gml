@@ -36,7 +36,7 @@ switch(opcode) {
     //
     case $10: DJNZn(); break;
     case $11: LDrrnn_xy(Reg.D, Reg.E); break;
-    case $22: LDrrmA_xy(Reg.D, Reg.E); break;
+    case $12: LDrrmA_xy(Reg.D, Reg.E); break;
     case $13: INCrr_xy(Reg.D, Reg.E); break;
     case $14: INCr_x(Reg.D); break;
     case $15: DECr_x(Reg.D); break;
@@ -54,15 +54,15 @@ switch(opcode) {
     //
     // 2
     //
-    case $20: break;
+    case $20: JRNZn(); break;
     case $21: LDrrnn_xy(Reg.H, Reg.L); break;
-    case $22: break;
+    case $22:  LDHLIA(); break;
     case $23: INCrr_xy(Reg.H, Reg.L); break;
     case $24: INCr_x(Reg.H); break;
     case $25: DECr_x(Reg.H); break;
     case $26: LDrn_x(Reg.H); break;
     case $27: DAA(); break;
-    case $28: break;
+    case $28: JRZn(); break;
     case $29: ADDHLrr_xy(Reg.H, Reg.L); break;    
     case $2A: LDAHLI(); break;
     case $2B: DECrr_xy(Reg.H, Reg.L); break;
@@ -74,8 +74,22 @@ switch(opcode) {
     //
     // 3
     //
+    case $30: JRNCn(); break;
+    case $31: LDSPnn(); break;
+    case $32: LDHLDA(); break;
     case $33: INCSP(); break;
+    case $34: INCHLm(); break;
+    case $35: DECHLm(); break;
+    case $36: LDHLmn(); break;
+    case $37: SCF(); break;
+    case $38: JRCn(); break;
+    case $39: ADDHLSP(); break;
+    case $3A: LDAHLD(); break;
+    case $3B: DECSP(); break;
     case $3C: INCr_x(Reg.A); break;
+    case $3D: DECr_x(Reg.A); break;
+    case $3E: LDrn_x(Reg.A); break;
+    case $3F: CCF(); break;
     
     //
     // 4
@@ -181,10 +195,42 @@ switch(opcode) {
     //
     // 9
     //
+    case $90: SUBr_x(Reg.B); break;
+    case $91: SUBr_x(Reg.C); break;
+    case $92: SUBr_x(Reg.D); break;
+    case $93: SUBr_x(Reg.E); break;
+    case $94: SUBr_x(Reg.H); break;
+    case $95: SUBr_x(Reg.L); break;
+    case $96: SUBHL(); break;
+    case $97: SUBr_x(Reg.A); break;
+    case $98: SBCr_x(Reg.B); break;
+    case $99: SBCr_x(Reg.C); break;
+    case $9A: SBCr_x(Reg.D); break;
+    case $9B: SBCr_x(Reg.E); break;
+    case $9C: SBCr_x(Reg.H); break;
+    case $9D: SBCr_x(Reg.L); break;
+    case $9E: SBCHL(); break;
+    case $9F: SBCr_x(Reg.A); break;
     
     //
     // A
     //
+    case $A0: ANDr_x(Reg.B); break;
+    case $A1: ANDr_x(Reg.C); break;
+    case $A2: ANDr_x(Reg.D); break;
+    case $A3: ANDr_x(Reg.E); break;
+    case $A4: ANDr_x(Reg.H); break;
+    case $A5: ANDr_x(Reg.L); break;
+    case $A6: ANDHL(); break;
+    case $A7: ANDr_x(Reg.A); break;
+    case $A8: XORr_x(Reg.B); break;
+    case $A9: XORr_x(Reg.C); break;
+    case $AA: XORr_x(Reg.D); break;
+    case $AB: XORr_x(Reg.E); break;
+    case $AC: XORr_x(Reg.H); break;
+    case $AD: XORr_x(Reg.L); break;
+    case $AE: XORHL(); break;
+    case $AF: XORr_x(Reg.A); break;
     
     //
     // B

@@ -207,6 +207,7 @@
               <script>scripts\DJNZn.gml</script>
             </scripts>
             <scripts name="Memory">
+              <script>scripts\LDSPnn.gml</script>
               <script>scripts\LDrHLm_x.gml</script>
               <script>scripts\LDHLmr_x.gml</script>
               <script>scripts\LDrr_xy.gml</script>
@@ -216,29 +217,57 @@
               <script>scripts\LDArrm_xy.gml</script>
               <script>scripts\LDmmSP.gml</script>
               <script>scripts\LDAHLI.gml</script>
+              <script>scripts\LDHLIA.gml</script>
+              <script>scripts\LDAHLD.gml</script>
+              <script>scripts\LDHLDA.gml</script>
+              <script>scripts\LDHLmn.gml</script>
             </scripts>
             <scripts name="Math">
               <script>scripts\ADDr_x.gml</script>
               <script>scripts\ADCr_x.gml</script>
               <script>scripts\ADDHL.gml</script>
               <script>scripts\ADCHL.gml</script>
+              <script>scripts\ADDHLSP.gml</script>
+              <script>scripts\ADDHLrr_xy.gml</script>
+              <script>scripts\SUBr_x.gml</script>
+              <script>scripts\SUBHL.gml</script>
+              <script>scripts\SBCr_x.gml</script>
+              <script>scripts\SBCHL.gml</script>
               <script>scripts\INCrr_xy.gml</script>
               <script>scripts\INCr_x.gml</script>
+              <script>scripts\INCHLm.gml</script>
               <script>scripts\DECr_x.gml</script>
+              <script>scripts\DECHLm.gml</script>
               <script>scripts\DECrr_xy.gml</script>
-              <script>scripts\ADDHLrr_xy.gml</script>
               <script>scripts\RLCA.gml</script>
               <script>scripts\RLA.gml</script>
               <script>scripts\RRCA.gml</script>
               <script>scripts\RRA.gml</script>
               <script>scripts\DAA.gml</script>
+              <script>scripts\SCF.gml</script>
               <script>scripts\CPL.gml</script>
+              <script>scripts\CCF.gml</script>
             </scripts>
             <scripts name="Stack">
               <script>scripts\PUSH_xx.gml</script>
               <script>scripts\POP_xx.gml</script>
               <script>scripts\INCSP.gml</script>
               <script>scripts\JRn.gml</script>
+              <script>scripts\JRNZn.gml</script>
+              <script>scripts\JRZn.gml</script>
+              <script>scripts\JRNCn.gml</script>
+              <script>scripts\JRCn.gml</script>
+              <script>scripts\DECSP.gml</script>
+            </scripts>
+            <scripts name="Bitwise">
+              <script>scripts\ANDr_x.gml</script>
+              <script>scripts\ANDHL.gml</script>
+              <script>scripts\XORr_x.gml</script>
+              <script>scripts\XORHL.gml</script>
+              <script>scripts\ORr_x.gml</script>
+              <script>scripts\ORHL.gml</script>
+              <script>scripts\CPr_x.gml</script>
+              <script>scripts\CPHL.gml</script>
             </scripts>
           </scripts>
         </scripts>
