@@ -1,7 +1,7 @@
 ///JRNZn();
 gml_pragma("forceinline");
 
-var i = ReadByte(pc);
+var i = ReadByte(PC);
 
 if(i > 127) {
     i = -((~i + 1) & $FF);
