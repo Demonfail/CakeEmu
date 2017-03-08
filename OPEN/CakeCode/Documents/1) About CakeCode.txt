@@ -1,0 +1,10 @@
+CakeCode is a HL language I have developed spesifically for the act of programming games for OLD games consoles.
+
+It was inspired by C and GML.
+
+I thought of the idea for it when I initially began writing emulators. I wanted to develop games for old consoles,
+but I didn't really feel like writing out ASM to do it, I wanted a high level language which supported these systems
+with out additional libaries.
+
+You will find documentation for the language and a compiler/decomiler for it when I'm comfortable with it's
+ability to be used mainstream. 
