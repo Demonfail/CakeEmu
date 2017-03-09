@@ -76,16 +76,17 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Helper">
-      <script>scripts\LoadGameByCore.gml</script>
-      <script>scripts\dec_to_hex.gml</script>
+      <scripts name="Array">
+        <script>scripts\barray_create.gml</script>
+        <script>scripts\barray_copy.gml</script>
+      </scripts>
       <scripts name="Buffer">
         <script>scripts\buffer_read_from.gml</script>
         <script>scripts\buffer_write_from.gml</script>
       </scripts>
+      <script>scripts\LoadGameByCore.gml</script>
+      <script>scripts\dec_to_hex.gml</script>
       <script>scripts\ternary.gml</script>
-      <scripts name="Array">
-        <script>scripts\barray_create.gml</script>
-      </scripts>
     </scripts>
     <scripts name="GUI">
       <scripts name="ListBox">
@@ -179,134 +180,141 @@
         </scripts>
       </scripts>
       <scripts name="Gameboy">
-        <scripts name="Helper">
-          <scripts name="Get">
-            <script>scripts\GetAF.gml</script>
-            <script>scripts\GetBC.gml</script>
-            <script>scripts\GetDE.gml</script>
-            <script>scripts\GetHL.gml</script>
-            <script>scripts\GetFZero.gml</script>
-            <script>scripts\GetFSubtract.gml</script>
-            <script>scripts\GetFHalfCarry.gml</script>
-            <script>scripts\GetFCarry.gml</script>
-          </scripts>
-          <scripts name="Set">
-            <script>scripts\SetAF.gml</script>
-            <script>scripts\SetBC.gml</script>
-            <script>scripts\SetDE.gml</script>
-            <script>scripts\SetHL.gml</script>
-          </scripts>
-          <scripts name="MMU">
-            <script>scripts\ReadByte.gml</script>
-            <script>scripts\WriteByte.gml</script>
-            <script>scripts\ReadWord.gml</script>
-            <script>scripts\WriteWord.gml</script>
-          </scripts>
-          <scripts name="OPs">
-            <scripts name="System">
-              <script>scripts\HALT.gml</script>
-              <script>scripts\NOP.gml</script>
-              <script>scripts\XX.gml</script>
-              <script>scripts\DJNZn.gml</script>
-              <script>scripts\RST_x.gml</script>
-            </scripts>
-            <scripts name="Memory">
-              <script>scripts\LDSPnn.gml</script>
-              <script>scripts\LDrHLm_x.gml</script>
-              <script>scripts\LDHLmr_x.gml</script>
-              <script>scripts\LDrr_xy.gml</script>
-              <script>scripts\LDrrnn_xy.gml</script>
-              <script>scripts\LDrrmA_xy.gml</script>
-              <script>scripts\LDrn_x.gml</script>
-              <script>scripts\LDArrm_xy.gml</script>
-              <script>scripts\LDmmSP.gml</script>
-              <script>scripts\LDAHLI.gml</script>
-              <script>scripts\LDHLIA.gml</script>
-              <script>scripts\LDAHLD.gml</script>
-              <script>scripts\LDHLDA.gml</script>
-              <script>scripts\LDHLmn.gml</script>
-              <script>scripts\LDIOCA.gml</script>
-              <script>scripts\LDIOnA.gml</script>
-            </scripts>
-            <scripts name="Math">
-              <script>scripts\ADDr_x.gml</script>
-              <script>scripts\ADCr_x.gml</script>
-              <script>scripts\ADDHL.gml</script>
-              <script>scripts\ADCHL.gml</script>
-              <script>scripts\ADCn.gml</script>
-              <script>scripts\ADDHLSP.gml</script>
-              <script>scripts\ADDHLrr_xy.gml</script>
-              <script>scripts\ADDn.gml</script>
-              <script>scripts\SUBr_x.gml</script>
-              <script>scripts\SUBHL.gml</script>
-              <script>scripts\SUBn.gml</script>
-              <script>scripts\SBCr_x.gml</script>
-              <script>scripts\SBCHL.gml</script>
-              <script>scripts\SBCn.gml</script>
-              <script>scripts\INCrr_xy.gml</script>
-              <script>scripts\INCr_x.gml</script>
-              <script>scripts\INCHLm.gml</script>
-              <script>scripts\DECr_x.gml</script>
-              <script>scripts\DECHLm.gml</script>
-              <script>scripts\DECrr_xy.gml</script>
-              <script>scripts\RLCA.gml</script>
-              <script>scripts\RLA.gml</script>
-              <script>scripts\RRCA.gml</script>
-              <script>scripts\RRA.gml</script>
-              <script>scripts\DAA.gml</script>
-              <script>scripts\SCF.gml</script>
-              <script>scripts\CPL.gml</script>
-              <script>scripts\CCF.gml</script>
-            </scripts>
-            <scripts name="Stack">
-              <script>scripts\PUSH_xx.gml</script>
-              <script>scripts\RETI.gml</script>
-              <script>scripts\POP_xx.gml</script>
-              <script>scripts\INCSP.gml</script>
-              <script>scripts\JRn.gml</script>
-              <script>scripts\JRNZn.gml</script>
-              <script>scripts\JRZn.gml</script>
-              <script>scripts\JRNCn.gml</script>
-              <script>scripts\JRCn.gml</script>
-              <script>scripts\DECSP.gml</script>
-              <script>scripts\RETNZ.gml</script>
-              <script>scripts\RETNC.gml</script>
-              <script>scripts\JPNZnn.gml</script>
-              <script>scripts\JPNCnn.gml</script>
-              <script>scripts\JPZnn.gml</script>
-              <script>scripts\JPCnn.gml</script>
-              <script>scripts\JPnn.gml</script>
-              <script>scripts\CALLNZnn.gml</script>
-              <script>scripts\CALLNCnn.gml</script>
-              <script>scripts\RETZ.gml</script>
-              <script>scripts\RETC.gml</script>
-              <script>scripts\RET.gml</script>
-              <script>scripts\CALLZnn.gml</script>
-              <script>scripts\CALLCnn.gml</script>
-              <script>scripts\CALLnn.gml</script>
-            </scripts>
-            <scripts name="Bitwise">
-              <script>scripts\ANDr_x.gml</script>
-              <script>scripts\ANDHL.gml</script>
-              <script>scripts\ANDn.gml</script>
-              <script>scripts\XORr_x.gml</script>
-              <script>scripts\XORHL.gml</script>
-              <script>scripts\XORn.gml</script>
-              <script>scripts\ORr_x.gml</script>
-              <script>scripts\ORHL.gml</script>
-              <script>scripts\CPr_x.gml</script>
-              <script>scripts\CPHL.gml</script>
-            </scripts>
-            <scripts name="Tables">
-              <script>scripts\CBPREFIX.gml</script>
-            </scripts>
-          </scripts>
-        </scripts>
         <script>scripts\Core_GameboyInit.gml</script>
         <script>scripts\Core_GameboyLoadBios.gml</script>
         <script>scripts\Core_GameboyLoadRom.gml</script>
         <script>scripts\Core_GameboyReset.gml</script>
         <script>scripts\Core_GameboyCPU.gml</script>
+        <scripts name="MMU">
+          <script>scripts\ReadByte.gml</script>
+          <script>scripts\WriteByte.gml</script>
+          <script>scripts\ReadWord.gml</script>
+          <script>scripts\WriteWord.gml</script>
+        </scripts>
+        <scripts name="OPs">
+          <scripts name="System">
+            <script>scripts\HALT.gml</script>
+            <script>scripts\NOP.gml</script>
+            <script>scripts\XX.gml</script>
+            <script>scripts\DJNZn.gml</script>
+            <script>scripts\RST_x.gml</script>
+            <script>scripts\DI.gml</script>
+            <script>scripts\EI.gml</script>
+          </scripts>
+          <scripts name="Memory">
+            <script>scripts\LDSPnn.gml</script>
+            <script>scripts\LDrHLm_x.gml</script>
+            <script>scripts\LDHLmr_x.gml</script>
+            <script>scripts\LDrr_xy.gml</script>
+            <script>scripts\LDrrnn_xy.gml</script>
+            <script>scripts\LDrrmA_xy.gml</script>
+            <script>scripts\LDrn_x.gml</script>
+            <script>scripts\LDArrm_xy.gml</script>
+            <script>scripts\LDmmSP.gml</script>
+            <script>scripts\LDAHLI.gml</script>
+            <script>scripts\LDHLIA.gml</script>
+            <script>scripts\LDAHLD.gml</script>
+            <script>scripts\LDHLDA.gml</script>
+            <script>scripts\LDHLmn.gml</script>
+            <script>scripts\LDIOCA.gml</script>
+            <script>scripts\LDIOnA.gml</script>
+            <script>scripts\LDmmA.gml</script>
+            <script>scripts\LDAIOn.gml</script>
+            <script>scripts\LDAIOC.gml</script>
+            <script>scripts\LDHLSPn.gml</script>
+            <script>scripts\LDAmm.gml</script>
+          </scripts>
+          <scripts name="Math">
+            <script>scripts\ADDr_x.gml</script>
+            <script>scripts\ADCr_x.gml</script>
+            <script>scripts\ADDHL.gml</script>
+            <script>scripts\ADCHL.gml</script>
+            <script>scripts\ADCn.gml</script>
+            <script>scripts\ADDHLSP.gml</script>
+            <script>scripts\ADDSPn.gml</script>
+            <script>scripts\ADDHLrr_xy.gml</script>
+            <script>scripts\ADDn.gml</script>
+            <script>scripts\SUBr_x.gml</script>
+            <script>scripts\SUBHL.gml</script>
+            <script>scripts\SUBn.gml</script>
+            <script>scripts\SBCr_x.gml</script>
+            <script>scripts\SBCHL.gml</script>
+            <script>scripts\SBCn.gml</script>
+            <script>scripts\INCrr_xy.gml</script>
+            <script>scripts\INCr_x.gml</script>
+            <script>scripts\INCHLm.gml</script>
+            <script>scripts\DECr_x.gml</script>
+            <script>scripts\DECHLm.gml</script>
+            <script>scripts\DECrr_xy.gml</script>
+            <script>scripts\RLCA.gml</script>
+            <script>scripts\RLA.gml</script>
+            <script>scripts\RRCA.gml</script>
+            <script>scripts\RRA.gml</script>
+            <script>scripts\DAA.gml</script>
+            <script>scripts\SCF.gml</script>
+            <script>scripts\CPL.gml</script>
+            <script>scripts\CCF.gml</script>
+          </scripts>
+          <scripts name="Stack">
+            <script>scripts\PUSH_xx.gml</script>
+            <script>scripts\RETI.gml</script>
+            <script>scripts\POP_xx.gml</script>
+            <script>scripts\INCSP.gml</script>
+            <script>scripts\JRn.gml</script>
+            <script>scripts\JRNZn.gml</script>
+            <script>scripts\JRZn.gml</script>
+            <script>scripts\JRNCn.gml</script>
+            <script>scripts\JRCn.gml</script>
+            <script>scripts\DECSP.gml</script>
+            <script>scripts\RETNZ.gml</script>
+            <script>scripts\RETNC.gml</script>
+            <script>scripts\JPNZnn.gml</script>
+            <script>scripts\JPNCnn.gml</script>
+            <script>scripts\JPZnn.gml</script>
+            <script>scripts\JPCnn.gml</script>
+            <script>scripts\JPnn.gml</script>
+            <script>scripts\CALLNZnn.gml</script>
+            <script>scripts\CALLNCnn.gml</script>
+            <script>scripts\RETZ.gml</script>
+            <script>scripts\RETC.gml</script>
+            <script>scripts\RET.gml</script>
+            <script>scripts\CALLZnn.gml</script>
+            <script>scripts\CALLCnn.gml</script>
+            <script>scripts\CALLnn.gml</script>
+            <script>scripts\JPHL.gml</script>
+          </scripts>
+          <scripts name="Bitwise">
+            <script>scripts\ANDr_x.gml</script>
+            <script>scripts\ANDHL.gml</script>
+            <script>scripts\ANDn.gml</script>
+            <script>scripts\XORr_x.gml</script>
+            <script>scripts\XORHL.gml</script>
+            <script>scripts\XORn.gml</script>
+            <script>scripts\ORr_x.gml</script>
+            <script>scripts\ORHL.gml</script>
+            <script>scripts\ORn.gml</script>
+            <script>scripts\CPr_x.gml</script>
+            <script>scripts\CPHL.gml</script>
+            <script>scripts\CPn.gml</script>
+          </scripts>
+          <scripts name="Tables">
+            <script>scripts\CBPREFIX.gml</script>
+          </scripts>
+          <scripts name="CB">
+            <script>scripts\BITx.gml</script>
+            <script>scripts\BITm.gml</script>
+            <script>scripts\RESx.gml</script>
+            <script>scripts\RESm.gml</script>
+            <script>scripts\SETx.gml</script>
+            <script>scripts\SETm.gml</script>
+            <script>scripts\SWAPx.gml</script>
+            <script>scripts\SRLx.gml</script>
+            <script>scripts\SLAx.gml</script>
+            <script>scripts\SRAx.gml</script>
+            <script>scripts\RLx.gml</script>
+            <script>scripts\RLHL.gml</script>
+          </scripts>
+        </scripts>
       </scripts>
     </scripts>
   </scripts>

@@ -1,0 +1,9 @@
+///SRLx(reg_x);
+gml_pragma("forceinline");
+
+var co = ternary(REG[argument0] & $01, $10, $00);
+REG[argument0] = (REG[argument0]>>1) & $FF;
+REG[Reg.F] = ternary(REG[argument0], 0, $80);
+REG[Reg.F] = (REG[Reg.F] & $EF) + co;
+REG[Reg.M] = 2;
+REG[Reg.T] = 8;

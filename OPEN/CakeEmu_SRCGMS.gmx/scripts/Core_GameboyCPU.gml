@@ -106,8 +106,7 @@ switch(opcode) {
     case $4D: LDrr_xy(Reg.C, Reg.L); break;
     case $4E: LDrHLm_x(Reg.C);       break;
     case $4F: LDrr_xy(Reg.C, Reg.A); break;
-    
-    
+        
     //
     // 5
     //
@@ -291,43 +290,42 @@ switch(opcode) {
     //
     // E
     //
-    case $E0: LDIOnA(); break;
-    case $E1: POP_xx(Reg.H, Reg.L); break;
-    case $E2: LDIOCA(); break;
-    case $E3: err = XX(); break;
-    case $E4: err = XX(); break;
+    case $E0: LDIOnA();              break;
+    case $E1: POP_xx(Reg.H, Reg.L);  break;
+    case $E2: LDIOCA();              break;
+    case $E3: err = XX();            break;
+    case $E4: err = XX();            break;
     case $E5: PUSH_xx(Reg.H, Reg.L); break;
-    case $E6: ANDn(); break;
-    case $E7: RST_x($20); break;
-    
-    
-    
-    case $EB: err = XX(); break;
-    case $EC: err = XX(); break;
-    case $ED: err = XX(); break;
-    case $EE: XORn(); break;
-    case $EF: RST_x($28); break;
+    case $E6: ANDn();                break;
+    case $E7: RST_x($20);            break;
+    case $E8: ADDSPn();              break;
+    case $E9: JPHL();                break;
+    case $EA: LDmmA();               break;
+    case $EB: err = XX();            break;
+    case $EC: err = XX();            break;
+    case $ED: err = XX();            break;
+    case $EE: XORn();                break;
+    case $EF: RST_x($28);            break;
     
     //
     // F
     //
-    
-    case $F1: POP_xx(Reg.A, Reg.F); break;
-    
-    
-    case $F4: err = XX(); break;
+    case $F0: LDAIOn();              break;
+    case $F1: POP_xx(Reg.A, Reg.F);  break;
+    case $F2: LDAIOC();              break;
+    case $F3: DI();                  break;
+    case $F4: err = XX();            break;
     case $F5: PUSH_xx(Reg.A, Reg.F); break;
-    
-    case $F7: RST_x($30); break;
-    
-    case $F9: err = XX(); break;
-    
-    
-    case $FC: err = XX(); break;
-    case $FD: err = XX(); break;
-    
-    case $FF: RST_x($38); break;
-
+    case $F6: ORn();                 break;
+    case $F7: RST_x($30);            break;
+    case $F8: LDHLSPn();             break;
+    case $F9: err = XX();            break;
+    case $FA: LDAmm();               break;
+    case $FB: EI();                  break;
+    case $FC: err = XX();            break;
+    case $FD: err = XX();            break;
+    case $FE: CPn();                 break;
+    case $FF: RST_x($38);            break;
     
     //
     // NOT IMPLEMENTED.
@@ -343,3 +341,5 @@ PC &= 65535; //Mask PC to FFFF.
 
 CM += REG[Reg.M]; //Add time to CPU clocks.
 CT += REG[Reg.T];
+REG[Reg.M] = 0;
+REG[Reg.T] = 0;
