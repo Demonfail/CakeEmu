@@ -1,7 +1,7 @@
 ///Core_GameboyCPU();
 gml_pragma("forceinline");
 
-var opcode = $00, var err = false;
+var opcode = $00;
 
 opcode = ReadByte(PC); PC++; //Fetch
 err = false;

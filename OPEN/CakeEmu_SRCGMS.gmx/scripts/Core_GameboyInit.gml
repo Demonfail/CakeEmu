@@ -37,6 +37,7 @@ SP = 0; //Stack Pointer
 bHalt = false;
 bStop = false;
 IME = false;
+err = false;
 
 //
 //Clocks

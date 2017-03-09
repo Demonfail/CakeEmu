@@ -2,8 +2,24 @@
 
 opcode = ReadByte(PC); PC++; //Fetch
 
-switch(opcode) {
-    
+switch(opcode) {    
+    case $00: RLCx(Reg.B); break;
+    case $01: RLCx(Reg.C); break;
+    case $02: RLCx(Reg.D); break;
+    case $03: RLCx(Reg.E); break;
+    case $04: RLCx(Reg.H); break;
+    case $05: RLCx(Reg.L); break;
+    case $06: RLCHL();     break;
+    case $07: RLCx(Reg.A); break;
+    case $08: RRCx(Reg.B); break;
+    case $09: RRCx(Reg.C); break;
+    case $0A: RRCx(Reg.D); break;
+    case $0B: RRCx(Reg.E); break;
+    case $0C: RRCx(Reg.H); break;
+    case $0D: RRCx(Reg.L); break;
+    case $0E: RRCHL();     break;
+    case $0F: RRCx(Reg.A); break;
+
     //
     // 1
     //
@@ -16,6 +32,14 @@ switch(opcode) {
     case $16: RLHL();     break;
     case $17: RLx(Reg.A); break;
     
+    case $18: RRx(Reg.B); break;
+    case $19: RRx(Reg.C); break;
+    case $1A: RRx(Reg.D); break;
+    case $1B: RRx(Reg.E); break;
+    case $1C: RRx(Reg.H); break;
+    case $1D: RRx(Reg.L); break;
+    case $1E: RRHL();     break;
+    case $1F: RRx(Reg.A); break;
     
     //
     // 2
@@ -293,23 +317,23 @@ switch(opcode) {
     //
     // F
     //
-    case $E0: SETx(Reg.B, $40); break;
-    case $E1: SETx(Reg.C, $40); break;
-    case $E2: SETx(Reg.D, $40); break;
-    case $E3: SETx(Reg.E, $40); break;
-    case $E4: SETx(Reg.H, $40); break;
-    case $E5: SETx(Reg.L, $40); break;
-    case $E6: SETm($40);        break;
-    case $E7: SETx(Reg.A, $40); break;
+    case $F0: SETx(Reg.B, $40); break;
+    case $F1: SETx(Reg.C, $40); break;
+    case $F2: SETx(Reg.D, $40); break;
+    case $F3: SETx(Reg.E, $40); break;
+    case $F4: SETx(Reg.H, $40); break;
+    case $F5: SETx(Reg.L, $40); break;
+    case $F6: SETm($40);        break;
+    case $F7: SETx(Reg.A, $40); break;
     
-    case $E8: SETx(Reg.B, $80); break;
-    case $E9: SETx(Reg.C, $80); break;
-    case $EA: SETx(Reg.D, $80); break;
-    case $EB: SETx(Reg.E, $80); break;
-    case $EC: SETx(Reg.H, $80); break;
-    case $ED: SETx(Reg.L, $80); break;
-    case $EE: SETm($80);        break;
-    case $EF: SETx(Reg.A, $80); break;
+    case $F8: SETx(Reg.B, $80); break;
+    case $F9: SETx(Reg.C, $80); break;
+    case $FA: SETx(Reg.D, $80); break;
+    case $FB: SETx(Reg.E, $80); break;
+    case $FC: SETx(Reg.H, $80); break;
+    case $FD: SETx(Reg.L, $80); break;
+    case $FE: SETm($80);        break;
+    case $FF: SETx(Reg.A, $80); break;
     
     //
     // UNKNOWN OPERATION

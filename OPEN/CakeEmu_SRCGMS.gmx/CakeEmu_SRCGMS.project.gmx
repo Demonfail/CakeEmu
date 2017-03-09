@@ -313,8 +313,15 @@
             <script>scripts\SRAx.gml</script>
             <script>scripts\RLx.gml</script>
             <script>scripts\RLHL.gml</script>
+            <script>scripts\RRx.gml</script>
+            <script>scripts\RRHL.gml</script>
+            <script>scripts\RLCx.gml</script>
+            <script>scripts\RLCHL.gml</script>
+            <script>scripts\RRCx.gml</script>
+            <script>scripts\RRCHL.gml</script>
           </scripts>
         </scripts>
+        <script>scripts\Core_GameboyDebugDraw.gml</script>
       </scripts>
     </scripts>
   </scripts>

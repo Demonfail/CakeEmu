@@ -1,12 +1,11 @@
 ///JRNZn();
 gml_pragma("forceinline");
 
-var i = ReadByte(PC);
+var i = ReadByte(PC); PC++;
 
 if(i > 127) {
     i = -((~i + 1) & $FF);
 }
-PC++;
 
 REG[Reg.M] = 2;
 REG[Reg.T] = 8;
