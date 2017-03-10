@@ -1,12 +1,13 @@
 ///Core_GameboyCPU();
 gml_pragma("forceinline");
 
-var opcode = $00;
-
 opcode = ReadByte(PC); PC++; //Fetch
-err = false;
 
-switch(opcode) {
+/**
+ * For speed, we use a massive switch statement, as it is compiled into a JMP-table.
+**/
+
+switch(opcode) { //Decode / Execute
     //
     // 0
     //

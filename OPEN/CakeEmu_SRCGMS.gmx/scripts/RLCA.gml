@@ -1,9 +1,18 @@
 ///RLCA();
 gml_pragma("forceinline");
 
-var ci = ternary((REG[Reg.A] & $80), $01, $00);
-var co = ternary((REG[Reg.A] & $80), $10, $00);
-REG[Reg.A] = ((REG[Reg.A] << 1) + ci) & $FF;
-REG[Reg.F] = (REG[Reg.F] & $EF) + co;
+var carry  = ((REG[Reg.A] & $80) >> 7) & $FF;
+if(carry) {
+    GBFlagSet(FMask.C);
+}else{
+    GBFlagClear(FMask.C);
+}
+
+REG[Reg.A] = REG[Reg.A] << 1;
+REG[Reg.A] += carry;
+
+GBFlagClear(FMask.N | FMask.Z | FMask.H);
+
 REG[Reg.M] = 1;
 REG[Reg.T] = 4;
+

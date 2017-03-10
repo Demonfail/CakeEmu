@@ -1,13 +1,12 @@
 ///JPNCnn();
 gml_pragma("forceinline");
 
-REG[Reg.M] = 3;
-REG[Reg.T] = 12;
-
-if((REG[Reg.F] & $10) == $00) {
-    PC = ReadWord(PC);
-    REG[Reg.M]+=1;
-    REG[Reg.T]+=4;
-}else{
+if(GBFlagGet(FMask.C)) {    
     PC += 2;
+    REG[Reg.M] = 3;
+    REG[Reg.T] = 12;
+}else{
+    PC = ReadWord(PC);
+    REG[Reg.M] = 4;
+    REG[Reg.T] = 16;
 }

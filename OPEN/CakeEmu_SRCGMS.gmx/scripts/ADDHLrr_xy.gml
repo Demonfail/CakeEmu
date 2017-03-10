@@ -1,15 +1,27 @@
 ///ADDHLrr_xy(reg_x, reg_y);
 gml_pragma("forceinline");
 
-var hl = (REG[Reg.H] << 8) + REG[Reg.L];
-    hl+= (REG[Reg.B] << 8) + REG[Reg.C];
-    
-if(hl > $FFFF) {
-    REG[Reg.F] |= $10;
+var dest   = GBCombind(Reg.H, Reg.L)
+var value  = GBCombind(Reg.B, Reg.C);
+var result = dest + value; 
+
+if(!(result & $FFFF0000)){
+    GBFlagClear(FMask.C);
 }else{
-    REG[Reg.F] &= $EF;
+    GBFlagSet(FMask.C);
 }
-REG[Reg.H] = (hl >> 8) & $FF;
-REG[Reg.L] = (hl & $FF);
+
+result = result & $FFFF;
+REG[Reg.H] = (result & $FF00) >> 8;
+REG[Reg.L] = (result & $FF);
+
+if(((result & $0F) + (value & $0F)) > $0F) {
+    GBFlagSet(FMask.H);
+}else{
+    GBFlagClear(FMask.H);
+}
+
+GBFlagClear(FMask.N);
+
 REG[Reg.M] = 3;
 REG[Reg.T] = 12;

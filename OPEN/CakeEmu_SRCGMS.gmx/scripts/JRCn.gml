@@ -2,16 +2,16 @@
 gml_pragma("forceinline");
 
 var i = ReadByte(PC);
-
 if(i > 127) {
-    i = -((~i + 1) & $FF);
+    i = -i;    
 }
-PC++;
+i = (i & $7E);
 
-REG[Reg.M] = 2;
-REG[Reg.T] = 8;
-if((REG[Reg.F] & $80) == $00) {
+if(!GBFlagGet(FMask.C)) {
+    REG[Reg.M] = 2;
+    REG[Reg.T] = 8;
+}else{
     PC += i;
-    REG[Reg.M] += 1;
-    REG[Reg.T] += 4;
+    REG[Reg.M] = 3;
+    REG[Reg.T] = 12;
 }

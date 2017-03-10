@@ -1,14 +1,35 @@
 ///Core_GameboyInit();
 gml_pragma("forceinline");
 
+CoreGBDebug = true;
+if(CoreGBDebug == true) { //Only used if 
+    MNLIST = array_create(256);
+    for(var i = 0; i < 256; ++i) {
+        MNLIST[i] = "UNKNOWN";
+    }
+    MNLIST[$00] = "NOP";
+    MNLIST[$01] = "LD BC, NN";
+    MNLIST[$02] = "LD (BC), A";
+    MNLIST[$03] = "INC BC";
+    MNLIST[$04] = "INC B";
+    MNLIST[$05] = "DEC B";
+    MNLIST[$06] = "LD B, N";
+    MNLIST[$07] = "RLCA"
+    MNLIST[$08] = "LD NN, SP";
+    MNLIST[$09] = "ADD HL, BC";
+    MNLIST[$0A] = "LD A, (BC)";
+}
+opcode = $00;
+err    = false;
+
 //
 // 8-Bit Registers
 //
 enum FMask {
-    Z = $80, //Zero Flag
-    N = $40, //Subtraction Flag
-    H = $20, //Half Carry Flag
-    C = $10, //Carry Flag
+    Z = (1 << 7), //Zero Flag
+    N = (1 << 6), //Subtraction Flag
+    H = (1 << 5), //Half Carry Flag
+    C = (1 << 4), //Carry Flag
 };
 enum Reg {
     A,
@@ -25,6 +46,7 @@ enum Reg {
 };
  REG = array_create(10);
 SREG = array_create(8);
+
 //
 //16-Bit Pointers
 //
@@ -37,7 +59,6 @@ SP = 0; //Stack Pointer
 bHalt = false;
 bStop = false;
 IME = false;
-err = false;
 
 //
 //Clocks

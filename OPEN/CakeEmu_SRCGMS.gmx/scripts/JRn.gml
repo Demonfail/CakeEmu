@@ -1,17 +1,13 @@
 ///JRn();
-gml_pragma("forceinline");
+gml_pragma("forceinline"); PC++;
 
 var i = ReadByte(PC);
 
-if(i > 127) {
-    i = -((~i + 1) & $FF);
+if((i >> 7) == 1) {
+    i &= (i & $7F)
+    i = -i;
 }
-PC++;
-
-REG[Reg.M] = 2;
-REG[Reg.T] = 8;
-
-PC += I;
+PC += i;
 
 REG[Reg.M] = 3;
 REG[Reg.T] = 12;
